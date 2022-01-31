@@ -1,15 +1,18 @@
 $(document).ready(readyNow);
 
+let randomName = '';
+
 function readyNow(){
     $('body').html('<h3>Click On: <span id="randomName"></span></h3>');
     addPeople();
-    pickPerson()
+    pickPerson();
+    $('body').on('click', '.people', selectPerson)
 }
 
 function addPeople(){
     for (let person of people) {
     $('body').append(`
-    <div class="people">
+    <div class="people" data-name="${person.name}">
         <img src="https://github.com/${person.githubUsername}.png?size=250" alt="Profile image of ${person.name}">
     </div>`)
     }
@@ -23,10 +26,15 @@ function randomNumber(){
 
 function pickPerson() {
     let indexNumber = randomNumber();
-    let randomName = people[indexNumber].name;
+    randomName = people[indexNumber].name;
     $('#randomName').append(randomName);
     return randomName;
 }
+
+function selectPerson() {
+     console.log($(this).data().name)
+    }
+
 
 
 
