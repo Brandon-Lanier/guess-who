@@ -25,6 +25,7 @@ function randomNumber(){
 }
 
 function pickPerson() {
+    $('#randomName').empty();
     let indexNumber = randomNumber();
     randomName = people[indexNumber].name;
     $('#randomName').append(randomName);
@@ -35,9 +36,9 @@ function selectPerson() {
      let person = $(this).data().name;
      if (person === randomName) {
          alert('You Did It!');
-         readyNow();
+         pickPerson();
      } else {
-         alert('Try Again')
+         alert('Try Again');
      }
     }
 
