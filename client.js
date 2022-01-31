@@ -32,7 +32,13 @@ function pickPerson() {
 }
 
 function selectPerson() {
-     console.log($(this).data().name)
+     let person = $(this).data().name;
+     if (person === randomName) {
+         alert('You Did It!');
+         readyNow();
+     } else {
+         alert('Try Again')
+     }
     }
 
 
