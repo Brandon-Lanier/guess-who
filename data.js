@@ -1,4 +1,4 @@
-var people = [
+let people = [
   {
     name: 'Dev',
     githubUsername: 'devjanaprime'
@@ -27,4 +27,20 @@ var people = [
     name: 'Chris',
     githubUsername: 'christopher-black'
   },
+  {
+    name: 'Brandon',
+    githubUsername: 'Brandon-Lanier'
+  },
+  {
+    name: 'Tony',
+    githubUsername: 'Alaforgia'
+  },
+  {
+    name: 'Heather',
+    githubUsername: 'heatherpochi'
+  },
+  {
+    name: 'Adam',
+    githubUsername: 'agarberg'
+  }
 ];
