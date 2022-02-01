@@ -11,6 +11,7 @@ function readyNow(){
 
 function addPeople() {
     $('#container').empty();
+    // $('#container').slideLeft();
     let shuffledPeople = shuffle(people);
     for (let person of shuffledPeople) {
         $('#container').append(`
@@ -42,7 +43,7 @@ function selectPerson() {
         setTimeout(() => {correctPerson()}, 100);
      } else {
         $('body').css('background-color', 'red');
-        setTimeout(() => {`${alert('Not Quite.  Let\'s try again!')}`}, 100);
+        setTimeout(() => {`${alert('Not Quite.  Let\'s try again!')}`, $('body').css('background-color', '')}, 100);
      }
 }
 
