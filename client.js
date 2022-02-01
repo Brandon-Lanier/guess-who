@@ -3,7 +3,7 @@ $(document).ready(readyNow);
 let randomName = '';
 
 function readyNow(){
-    $('#nameGen').html('<h3>Click On: <span id="randomName"></span></h3>');
+    $('#nameGen').html('<h2>Click On: <span id="randomName"></span></h2>');
     pickPerson();
     addPeople();
     $('#container').on('click', '.people', selectPerson)
@@ -38,15 +38,15 @@ function pickPerson() {
 function selectPerson() {
      let person = $(this).data().name;
      if (person === randomName) {
-        correctPerson();
+        $('body').css('background-color', 'green');
+        setTimeout(() => {correctPerson()}, 100);
      } else {
          alert('Not quite! Let\'s keep trying.');
      }
-    }
+}
 
 function correctPerson() {
     alert('You Did It! Let\'s play again!');
-    $('body').css('background-color', 'green')
     setTimeout(() => {addPeople(), pickPerson()}, 2000);
 }
  
