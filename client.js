@@ -3,18 +3,20 @@ $(document).ready(readyNow);
 let randomName = '';
 
 function readyNow(){
-    $('body').html('<h3>Click On: <span id="randomName"></span></h3>');
-    addPeople();
+    $('#nameGen').html('<h3>Click On: <span id="randomName"></span></h3>');
     pickPerson();
-    $('body').on('click', '.people', selectPerson)
+    addPeople();
+    $('#container').on('click', '.people', selectPerson)
 }
 
-function addPeople(){
-    for (let person of people) {
-    $('body').append(`
-    <div class="people" data-name="${person.name}">
-        <img src="https://github.com/${person.githubUsername}.png?size=250" alt="Profile image of ${person.name}">
-    </div>`)
+function addPeople() {
+    $('#container').empty();
+    let shuffledPeople = shuffle(people);
+    for (let person of shuffledPeople) {
+        $('#container').append(`
+        <div class="people" data-name="${person.name}">
+            <img src="https://github.com/${person.githubUsername}.png?size=250" alt="Profile image of ${person.name}">
+        </div>`);
     }
 }
 
@@ -26,6 +28,7 @@ function randomNumber(){
 
 function pickPerson() {
     $('#randomName').empty();
+    $('body').css('background-color', 'white')
     let indexNumber = randomNumber();
     randomName = people[indexNumber].name;
     $('#randomName').append(randomName);
@@ -35,11 +38,24 @@ function pickPerson() {
 function selectPerson() {
      let person = $(this).data().name;
      if (person === randomName) {
-         alert('You Did It!');
-         pickPerson();
+        correctPerson();
      } else {
-         alert('Try Again');
+         alert('Not quite! Let\'s keep trying.');
      }
+    }
+
+function correctPerson() {
+    alert('You Did It! Let\'s play again!');
+    $('body').css('background-color', 'green')
+    setTimeout(() => {addPeople(), pickPerson()}, 2000);
+}
+ 
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
     }
 
 
