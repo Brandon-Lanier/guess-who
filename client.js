@@ -38,10 +38,11 @@ function pickPerson() {
 function selectPerson() {
      let person = $(this).data().name;
      if (person === randomName) {
-        $('body').css('background-color', 'green');
+        $('body').css('background-color', '#00d639');
         setTimeout(() => {correctPerson()}, 100);
      } else {
-         alert('Not quite! Let\'s keep trying.');
+        $('body').css('background-color', 'red');
+        setTimeout(() => {`${alert('Not Quite.  Let\'s try again!')}`}, 100);
      }
 }
 
