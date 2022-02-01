@@ -3,7 +3,7 @@ $(document).ready(readyNow);
 let randomName = '';
 
 function readyNow(){
-    $('#nameGen').html('<h2>Click On: <span id="randomName"></span></h2>');
+    $('#nameGen').html('<h1>Click On: <span id="randomName"></span></h1>');
     pickPerson();
     addPeople();
     $('#container').on('click', '.people', selectPerson)

@@ -1,4 +1,12 @@
 .people {
     display: inline-block;
+    margin: 5px;
 }
 
+.people:hover {
+    box-shadow: 0 0 10px #5d5d78;
+}
+
+h1 {
+    text-align: center;
+}
